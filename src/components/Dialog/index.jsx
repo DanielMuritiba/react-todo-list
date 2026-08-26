@@ -1,8 +1,11 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./dialog.style.css";
-export function Dialog() {
+export function Dialog({ isOpen, onClose }) {
   const dialogRef = useRef(null);
 
+  useEffect(() => {
+    isOpen ? openDialog() : closeDialog();
+  }, [isOpen]);
   const openDialog = () => {
     dialogRef.current.showModal();
   };
@@ -14,12 +17,11 @@ export function Dialog() {
   return (
     <>
       <dialog ref={dialogRef}>
-        <button autoFocus onClick={closeDialog}>
+        <button autoFocus onClick={onClose}>
           Close
         </button>
         <p>Eu sou um coloridinho</p>
       </dialog>
-      <button onClick={openDialog}>Show the dialog</button>
     </>
   );
 }

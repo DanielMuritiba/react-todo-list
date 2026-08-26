@@ -54,6 +54,11 @@ const completed = [
 
 function App() {
   const [showDialog, setShowDialog] = useState(false);
+
+  const toggleDialog = () => {
+    setShowDialog(!showDialog);
+  };
+
   return (
     <main>
       <Container>
@@ -76,13 +81,13 @@ function App() {
             })}
           </ToDoList>
           <Footer>
-            <FabButton onClick={() => setShowDialog(!showDialog)}>
+            <Dialog isOpen={showDialog} onClose={toggleDialog} />
+            <FabButton onClick={toggleDialog}>
               <IconPlus />
             </FabButton>
           </Footer>
         </ChecklistsWrapper>
       </Container>
-      <Dialog />
     </main>
   );
 }
