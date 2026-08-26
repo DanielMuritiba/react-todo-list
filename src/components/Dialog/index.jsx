@@ -1,6 +1,8 @@
-import { useEffect, useRef } from "react";
 import "./dialog.style.css";
-export function Dialog({ isOpen, onClose }) {
+import { useEffect, useRef } from "react";
+import { IconClose } from "../icons";
+
+export function Dialog({ isOpen, onClose, children }) {
   const dialogRef = useRef(null);
 
   useEffect(() => {
@@ -16,11 +18,13 @@ export function Dialog({ isOpen, onClose }) {
 
   return (
     <>
-      <dialog ref={dialogRef}>
-        <button autoFocus onClick={onClose}>
-          Close
-        </button>
-        <p>Eu sou um coloridinho</p>
+      <dialog ref={dialogRef} className="dialog">
+        <div className="btn-close-wrapper">
+          <button className="btn-close" autoFocus onClick={onClose}>
+            <IconClose />
+          </button>
+        </div>
+        {children}
       </dialog>
     </>
   );

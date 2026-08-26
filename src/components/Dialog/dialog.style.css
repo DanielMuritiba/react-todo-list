@@ -1,3 +1,20 @@
 ::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.dialog {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.btn-close-wrapper {
+  text-align: right;
+}
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
