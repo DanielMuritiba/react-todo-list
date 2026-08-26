@@ -1,40 +1,25 @@
-import { useEffect, useRef } from 'react';
-import './dialog.style.css'
+import { useRef } from "react";
+import "./dialog.style.css";
+export function Dialog() {
+  const dialogRef = useRef(null);
 
-// export function Dialog () {
+  const openDialog = () => {
+    dialogRef.current.showModal();
+  };
 
-// }
+  const closeDialog = () => {
+    dialogRef.current.close();
+  };
 
-export const Dialog = ({ isOpen, onClose }) => {
-    // const dialog = document.querySelector("dialog");
-    const refDialog = useRef()
-
-    useEffect(() => {
-        console.log("Exibir modal?", isOpen)
-        if (isOpen) {
-            refDialog.current.showModal();            
-        } else {
-            refDialog.current.close();
-        }
-    }, [isOpen])
-
-    // "Show the dialog" button opens the dialog modally
-    // const openModal = () => {
-    //     console.log('vamos abrir a modal')
-    //     refDialog.current.showModal();
-    // };
-
-    // "Close" button closes the dialog
-    // const closeModal = () => {
-    //     refDialog.current.close();
-    // };
-    return (<>
-        <dialog ref={refDialog}>
-            <button autoFocus onClick={onClose}>Close</button>
-            <p>This modal dialog has a groovy backdrop!</p>
-        </dialog>
-    </>)
+  return (
+    <>
+      <dialog ref={dialogRef}>
+        <button autoFocus onClick={closeDialog}>
+          Close
+        </button>
+        <p>Eu sou um coloridinho</p>
+      </dialog>
+      <button onClick={openDialog}>Show the dialog</button>
+    </>
+  );
 }
-
-export default Dialog;
-
