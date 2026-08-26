@@ -8,6 +8,7 @@ export function Dialog({ isOpen, onClose, children }) {
   useEffect(() => {
     isOpen ? openDialog() : closeDialog();
   }, [isOpen]);
+
   const openDialog = () => {
     dialogRef.current.showModal();
   };
