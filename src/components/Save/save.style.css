@@ -1,0 +1,15 @@
+.SaveButton {
+  width: 125px;
+  height: 48px;
+  border: 0;
+  font-size: 16px;
+  line-height: 150%;
+  color: #eaeaea;
+  border-radius: 24px;
+  background-color: #877eed;
+}
+
+.SaveButton:hover {
+  background-color: #544acb;
+  cursor: pointer;
+}
