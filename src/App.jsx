@@ -8,7 +8,7 @@ import { Header } from "./components/Header";
 import { Heading } from "./components/Heading";
 import { IconPlus, IconSchool } from "./components/icons";
 import { TodoForm } from "./components/ToDoForm";
-import TodoContext from "./components/TodoProvider/TodoContext";
+import { TodoContext } from "./components/TodoProvider/TodoContext";
 import { TodoGroup } from "./components/TodoGroup";
 
 function App() {
