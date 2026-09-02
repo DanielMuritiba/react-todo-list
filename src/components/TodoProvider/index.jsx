@@ -40,6 +40,20 @@ export function TodoProvider({ children }) {
     });
   };
 
+  const editTodo = (formData) => {
+    setTodos((prevState) => {
+      return prevState.map((t) => {
+        if (t.id == selectedTodo.id) {
+          return {
+            ...t,
+            description: formData.get("description"),
+          };
+        }
+        return t;
+      });
+    });
+  };
+
   const toggleTodoCompleted = (todo) => {
     setTodos((prevState) => {
       return prevState.map((t) => {
@@ -71,6 +85,7 @@ export function TodoProvider({ children }) {
         openFormTodoDialog,
         closeFormTodoDialog,
         selectedTodo,
+        editTodo,
       }}
     >
       {children}
